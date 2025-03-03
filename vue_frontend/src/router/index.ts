@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from '../views/Login.vue';
-import Dashboard from "../views/Dashboard.vue";
+import AdminDashboard from "../views/AdminDashboard.vue";
 import supabase from "../supabase";
 
 
@@ -9,14 +9,20 @@ const routes = [
   { path: "/login", component: Login },
   {
     path: "/dashboard",
-    component : Dashboard,
+    component : AdminDashboard,
     beforeEnter: async (to, from, next)=>{
       const {data} = await supabase.auth.getSession();
       if(!data.session){
-        next("/login");
-      }else{
-        next();
+        console.log("No Session");
+        return next("/login");
       }
+
+      const {data: userData} = await supabase.auth.getUser();
+      if (!userData?.user || userData.user.user_metadata?.role !== "admin") {
+        console.log("Access denied: User is not an admin.");
+        return next("/login");
+      }
+      next();
     }
   }
 ];

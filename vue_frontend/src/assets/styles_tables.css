@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+.container-box {
+    @apply w-full bg-white p-6 rounded-lg shadow-md border border-gray-200;
+}
+
+.table-style {
+  @apply w-full border border-gray-300 rounded-lg text-sm;
+}
+
+.table-header {
+  @apply bg-gray-100 text-gray-600 p-3 border uppercase;
+}
+.table-row {
+  @apply border-b hover:bg-gray-50;
+}
+.table-cell {
+  @apply p-3 border text-gray-800 truncate max-w-xs;
+}
+
+.button {
+  @apply px-4 py-2 text-white font-semibold rounded-md transition;
+}
+
+.button-primary {
+  @apply bg-blue-500 hover:bg-blue-700;
+}
+
+.button-danger {
+  @apply bg-red-500 hover:bg-red-700;
+}
+
+.filter-input {
+  @apply w-full p-1 mt-1 border border-gray-300 rounded-md text-sm;
+}
+

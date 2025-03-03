@@ -42,6 +42,13 @@ const login = async () => {
   if (error) {
     errorMessage.value = error.message;
   } else {
+    const { data: userData } = await supabase.auth.getUser(); //Fetch Metadata
+    if (userData?.user?.user_metadata?.role !== "admin") {
+      errorMessage.value = "Access Denied! Admins only.";
+      await supabase.auth.signOut(); //Log them out
+      return;
+    }
+
     localStorage.setItem("token", data.session.access_token); // Store JWT
     router.push("/dashboard"); // Redirect to dashboard
   }
