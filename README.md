@@ -104,9 +104,109 @@ The API will run on **`http://localhost:5000`**.
 - **Use HTTPS** in production for secure communication.
 - **Enable CORS carefully** to control allowed origins.
 
+---
 
+# StockSense Admin Panel - Frontend
+
+This is the **Vue.js** frontend for the **StockSense Admin Panel**, designed to manage users, organizations, and inventory items.
+
+## 🚀 Features
+- **User Authentication**: Login to access the dashboard.
+- **Item Management**: Create, edit, and delete items.
+- **Organization Management**: Manage organizations.
+- **User Management**: Add, update, and remove users.
+- **Dashboard View**: Displays an overview of data.
+
+## 🛠 Tech Stack
+- **Vue 3** - Frontend framework.
+- **Vue Router** - Client-side routing.
+- **Fetch API** - Communication with the backend.
+- **Tailwind CSS (if used)** - Styling.
 
 ---
 
-This `README.md` is **ready to be copied and pasted** directly into your GitHub repository. Let me know if you need any modifications! 🚀🔥
+## 📦 Installation
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-repo/stocksense-frontend.git
+cd stocksense-frontend
 ```
+
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
+
+### 4️⃣ Run the Development Server
+```sh
+npm run dev
+```
+The frontend will run on **`http://localhost:5173`** (default Vite port).
+
+---
+
+## 📡 Application Structure
+```
+/stocksense-frontend
+│── /src
+│   ├── /components
+│   │   ├── ItemTable.vue         # Displays item list
+│   │   ├── ItemEdit.vue          # Edit form for items
+│   │   ├── OrganizationTable.vue # Organization management
+│   │   ├── UserTable.vue         # User management
+│   │   ├── TableHeader.vue       # Reusable table header component
+│   ├── /views
+│   │   ├── AdminDashboard.vue    # Main admin dashboard
+│   │   ├── Dashboard.vue         # Overview page
+│   │   ├── Login.vue             # User authentication
+│   ├── /services
+│   │   ├── DatabaseService.js    # API service for backend interaction
+│   ├── /router
+│   │   ├── index.js              # Vue Router setup
+│── .env                          # Environment variables (if needed)
+│── main.js                        # Application entry point
+│── package.json                   # Dependencies
+│── README.md                      # Documentation
+```
+
+---
+
+## 📡 API Integration
+The frontend interacts with the backend via **`DatabaseService.js`**, which handles requests to the API.
+
+### 🔄 Example API Calls
+
+#### ✅ Fetch Users
+```js
+DatabaseService.getUsers().then(users => console.log(users));
+```
+
+#### ✅ Create Item
+```js
+DatabaseService.addItem({
+    item_name: "Laptop",
+    quantity: 10,
+    location: "Warehouse A",
+    organization_id: "org123"
+}).then(response => console.log(response));
+```
+
+#### ✅ Delete Organization
+```js
+DatabaseService.deleteOrganization("org123").then(response => console.log(response));
+```
+
+---
+
+## 🔒 Security Considerations
+- **Store API keys securely** – Never expose them in frontend code.
+- **Use authentication tokens** – Ensure protected routes.
+- **Enable CORS properly** – Allow only trusted domains.
+
+---
+
+## 🚀 Future Enhancements
+- Implement **Role-Based Access Control (RBAC)**
+- Add **Unit Testing with Jest**
+- Improve **UI/UX Design**
