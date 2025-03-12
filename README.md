@@ -125,19 +125,6 @@ This is the **Vue.js** frontend for the **StockSense Admin Panel**, designed to 
 
 ---
 
-## 📦 Installation
-
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/your-repo/stocksense-frontend.git
-cd stocksense-frontend
-```
-
-### 2️⃣ Install Dependencies
-```sh
-npm install
-```
-
 ### 4️⃣ Run the Development Server
 ```sh
 npm run dev
