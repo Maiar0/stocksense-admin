@@ -100,14 +100,6 @@ The API will run on **`http://localhost:5000`**.
 
 ---
 
-## 🚀 Deployment
-To deploy this backend, consider using:
-- **Heroku**: `git push heroku main`
-- **Render**: Follow Node.js deployment instructions.
-- **VPS (DigitalOcean, AWS, etc.)**: Use **PM2** to run the server persistently.
-
----
-
 ## 🔒 Security Considerations
 - **Use HTTPS** in production for secure communication.
 - **Enable CORS carefully** to control allowed origins.
